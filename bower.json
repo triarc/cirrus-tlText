@@ -1,0 +1,23 @@
+{
+  "name": "cirrus-tlText",
+  "version": "0.0.1",
+  "authors": [
+    "Marco Bachmann <mb@triarc-labs.com>"
+  ],
+  "main": "tlText.js",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "endpoint": "https://github.com/triarc/cirrus-tlText.git",
+  "dependencies": {
+    "cirrus-utils": "~0.0.1"
+  }
+}
