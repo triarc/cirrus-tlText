@@ -28,8 +28,7 @@ var Triarc;
 /// <reference path="autosizetextarea.ts" />
 var mod = angular.module("tlText", []);
 mod.filter("tlEnum", [
-    '$translate',
-    function ($translate) {
+    '$translate', function ($translate) {
         return function (val, enumType) {
             if (!angular.isNumber(val))
                 return '';
@@ -42,14 +41,13 @@ mod.filter("tlEnum", [
     }
 ]);
 mod.filter("tlEnumOrdinals", [function () {
-    return function (val, enumType) {
-        return Triarc.getOrdinals(eval(enumType));
-    };
-}]);
+        return function (val, enumType) {
+            return Triarc.getOrdinals(eval(enumType));
+        };
+    }
+]);
 mod.directive("tlDotted", [
-    '$animate',
-    '$timeout',
-    function ($animate, $timeout) {
+    '$animate', '$timeout', function ($animate, $timeout) {
         return {
             restricted: "A",
             scope: {
@@ -84,7 +82,6 @@ mod.directive("tlDotted", [
                 });
             }
         };
-    }
-]);
+    }]);
 mod.directive(Triarc.Web.AutoSizeTextarea.directiveId, function ($timeout) { return new Triarc.Web.AutoSizeTextarea($timeout); });
 
