@@ -14,14 +14,11 @@ var Triarc;
             }
             AutoSizeTextarea.prototype.unboundLink = function (scope, element, attrs, ngModel) {
                 var _this = this;
-                autosize(element);
+                element.autosize();
                 element.addClass("textarea-expand-animation");
                 ngModel.$formatters.push(function (value) {
                     _this.$timeout(function () {
-                        var nativeElement = element[0];
-                        var evt = document.createEvent('Event');
-                        evt.initEvent('autosize:update', true, false);
-                        nativeElement.dispatchEvent(evt);
+                        element.trigger("autosize.resize");
                     }, 100);
                     return value;
                 });
