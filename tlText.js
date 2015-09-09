@@ -1,35 +1,3 @@
-var Triarc;
-(function (Triarc) {
-    var Web;
-    (function (Web) {
-        var AutoSizeTextarea = (function () {
-            function AutoSizeTextarea($timeout) {
-                this.$timeout = $timeout;
-                this.require = "ngModel";
-                this.restrict = "A";
-                this.scope = {
-                    ngModel: "="
-                };
-                this.link = this.unboundLink.bind(this);
-            }
-            AutoSizeTextarea.prototype.unboundLink = function (scope, element, attrs, ngModel) {
-                var _this = this;
-                element.autosize();
-                element.addClass("textarea-expand-animation");
-                ngModel.$formatters.push(function (value) {
-                    _this.$timeout(function () {
-                        element.trigger("autosize.resize");
-                    }, 100);
-                    return value;
-                });
-            };
-            AutoSizeTextarea.directiveId = "tlAutosize";
-            return AutoSizeTextarea;
-        })();
-        Web.AutoSizeTextarea = AutoSizeTextarea;
-    })(Web = Triarc.Web || (Triarc.Web = {}));
-})(Triarc || (Triarc = {}));
-/// <reference path="autosizetextarea.ts" />
 var mod = angular.module("tlText", []);
 mod.filter("tlEnum", [
     '$translate', function ($translate) {
@@ -87,5 +55,4 @@ mod.directive("tlDotted", [
             }
         };
     }]);
-mod.directive(Triarc.Web.AutoSizeTextarea.directiveId, function ($timeout) { return new Triarc.Web.AutoSizeTextarea($timeout); });
 
