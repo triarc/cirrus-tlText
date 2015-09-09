@@ -16,7 +16,7 @@ var Triarc;
                 autosize(element);
                 element.addClass("textarea-expand-animation");
                 this.$timeout(function () {
-                    element.trigger('autosize.resize');
+                    element.trigger('autosize:update');
                 }, 100);
             };
             AutoSizeTextarea.directiveId = "tlAutosize";
