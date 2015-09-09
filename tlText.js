@@ -16,13 +16,14 @@ var Triarc;
                 var _this = this;
                 autosize(element);
                 element.addClass("textarea-expand-animation");
-                ngModel.$formatters.push(function () {
+                ngModel.$formatters.push(function (value) {
                     _this.$timeout(function () {
                         var nativeElement = element[0];
                         var evt = document.createEvent('Event');
                         evt.initEvent('autosize:update', true, false);
                         nativeElement.dispatchEvent(evt);
                     }, 100);
+                    return value;
                 });
             };
             AutoSizeTextarea.directiveId = "tlAutosize";
