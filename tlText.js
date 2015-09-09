@@ -12,15 +12,18 @@ var Triarc;
                 };
                 this.link = this.unboundLink.bind(this);
             }
-            AutoSizeTextarea.prototype.unboundLink = function (scope, element, attrs) {
+            AutoSizeTextarea.prototype.unboundLink = function (scope, element, attrs, ngModel) {
+                var _this = this;
                 autosize(element);
                 element.addClass("textarea-expand-animation");
-                this.$timeout(function () {
-                    var nativeElement = element[0];
-                    var evt = document.createEvent('Event');
-                    evt.initEvent('autosize:update', true, false);
-                    nativeElement.dispatchEvent(evt);
-                }, 100);
+                ngModel.$formatters.push(function () {
+                    _this.$timeout(function () {
+                        var nativeElement = element[0];
+                        var evt = document.createEvent('Event');
+                        evt.initEvent('autosize:update', true, false);
+                        nativeElement.dispatchEvent(evt);
+                    }, 100);
+                });
             };
             AutoSizeTextarea.directiveId = "tlAutosize";
             return AutoSizeTextarea;

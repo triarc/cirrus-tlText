@@ -9,7 +9,7 @@ declare module Triarc.Web {
         };
         link: any;
         constructor($timeout: angular.ITimeoutService);
-        unboundLink(scope: any, element: any, attrs: any): void;
+        unboundLink(scope: any, element: any, attrs: any, ngModel: any): void;
     }
 }
 declare var mod: ng.IModule;
