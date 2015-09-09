@@ -1,6 +1,9 @@
 {
   "name": "cirrus-tlText",
-  "version": "0.0.7",
+  "version": "0.1.0",
+  "authors": [
+    "Krzysztof Burlinski <kb@triarc-labs.com>"
+  ],
   "main": "tlText.js",
   "moduleType": [
     "globals"
@@ -18,6 +21,7 @@
   },
   "endpoint": "https://github.com/triarc/cirrus-tlText.git",
   "dependencies": {
+    "jquery-autosize": "~3.0",
     "cirrus-utils": "^0.4.1"
   }
 }

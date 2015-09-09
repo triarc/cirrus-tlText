@@ -1,5 +1,5 @@
 declare module Triarc.Web {
-    class AutoSizeTextarea implements ng.IDirective {
+    class AutoSizeTextarea implements angular.IDirective {
         private $timeout;
         static directiveId: string;
         require: string;
@@ -8,7 +8,7 @@ declare module Triarc.Web {
             ngModel: string;
         };
         link: any;
-        constructor($timeout: ng.ITimeoutService);
+        constructor($timeout: angular.ITimeoutService);
         unboundLink(scope: any, element: any, attrs: any): void;
     }
 }

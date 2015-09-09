@@ -6,14 +6,14 @@ var Triarc;
             function AutoSizeTextarea($timeout) {
                 this.$timeout = $timeout;
                 this.require = "ngModel";
-                this.restrict = 'A';
+                this.restrict = "A";
                 this.scope = {
-                    ngModel: "=",
+                    ngModel: "="
                 };
                 this.link = this.unboundLink.bind(this);
             }
             AutoSizeTextarea.prototype.unboundLink = function (scope, element, attrs) {
-                element.autosize();
+                autosize(element);
                 element.addClass("textarea-expand-animation");
                 this.$timeout(function () {
                     element.trigger('autosize.resize');
